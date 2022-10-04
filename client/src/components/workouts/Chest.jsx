@@ -6,24 +6,34 @@ export const Chest = () => {
   const [overallChest, setOverallChest] = useState()
   //
 
-  const [flatBench, setFlatBench] = useState(165)
-  const [inclinePressMachine, setInclinePressMachine] = useState(185)
-  const [declinePressMachine, setDeclinePressMachine] = useState(60)
-  const [pecFlies, setPecFlies] = useState(100)
-  const [uprightDumbbellRaise, setUprightDumbellRaise] = useState(30)
-  const [lowerChestFlies, setLowerChestFlies] = useState(35)
+  const [flatBench, setFlatBench] = useState()
+  const [inclinePressMachine, setInclinePressMachine] = useState()
+  const [declinePressMachine, setDeclinePressMachine] = useState()
+  const [pecFlies, setPecFlies] = useState()
+  const [uprightDumbbellRaise, setUprightDumbellRaise] = useState()
+  const [lowerChestFlies, setLowerChestFlies] = useState()
 
-  const overallComputation = () => {
-    const overall =
-      (flatBench +
-        inclinePressMachine +
-        declinePressMachine +
-        pecFlies +
-        uprightDumbbellRaise +
-        lowerChestFlies) /
-      6
+  window.localStorage.setItem('flatbench', flatBench)
+  window.localStorage.setItem('inclinemachine', inclinePressMachine)
+  window.localStorage.setItem('declinemachine', declinePressMachine)
+  window.localStorage.setItem('pecflies', pecFlies)
+  window.localStorage.setItem('upperchestdb', uprightDumbbellRaise)
+  window.localStorage.setItem('lowerchestcable', lowerChestFlies)
+  window.localStorage.setItem('overall', overallChest)
 
-    setOverallChest(overall)
+  const overallComputation = (event) => {
+    event.preventDefault()
+    const prevoverall =
+      Number(
+        parseInt(flatBench) +
+          parseInt(inclinePressMachine) +
+          parseInt(declinePressMachine) +
+          parseInt(pecFlies) +
+          parseInt(uprightDumbbellRaise) +
+          parseInt(lowerChestFlies),
+      ) / 6
+
+    setOverallChest(prevoverall)
   }
 
   return (
@@ -51,37 +61,84 @@ export const Chest = () => {
           <b>Incline press machine</b>
           <ul>
             <li>Sets: 3 </li> <li>Reps: 8-10 </li>{' '}
-            <li> Weight: {inclinePressMachine}</li>
+            <li>
+              {' '}
+              Weight:{' '}
+              <input
+                placeholder="enter max weight"
+                onChange={(event) => {
+                  setInclinePressMachine(event.target.value)
+                }}
+              />{' '}
+            </li>
           </ul>
         </li>
         <li>
           <b>Decline press machine</b>
           <ul>
             <li>Sets: 3 </li> <li>Reps: 8-10 </li>{' '}
-            <li> Weight: {declinePressMachine}</li>
+            <li>
+              {' '}
+              Weight:{' '}
+              <input
+                placeholder="enter max weight"
+                onChange={(event) => {
+                  setDeclinePressMachine(event.target.value)
+                }}
+              />
+            </li>
           </ul>
         </li>
         <li>
           <b> Pec Flies</b>
           <ul>
-            <li>Sets: 2 </li> <li>Reps: 8-10 </li> <li> Weight: {pecFlies}</li>
+            <li>Sets: 2 </li> <li>Reps: 8-10 </li>{' '}
+            <li>
+              {' '}
+              Weight:{' '}
+              <input
+                placeholder="enter max weight"
+                onChange={(event) => {
+                  setPecFlies(event.target.value)
+                }}
+              />
+            </li>
           </ul>
         </li>
         <li>
           <b> Upright Dumbbell Raise</b>
           <ul>
             <li>Sets: 2 </li> <li>Reps: 8-10 </li>{' '}
-            <li> Weight: {uprightDumbbellRaise}</li>
+            <li>
+              {' '}
+              Weight:{' '}
+              <input
+                placeholder="enter max weight"
+                onChange={(event) => {
+                  setUprightDumbellRaise(event.target.value)
+                }}
+              />
+            </li>
           </ul>{' '}
         </li>
         <li>
           <b> Lower Chest Flies</b>
           <ul>
             <li>Sets: 2 </li> <li>Reps: 8-10 </li>{' '}
-            <li> Weight: {lowerChestFlies}</li>
+            <li>
+              {' '}
+              Weight:{' '}
+              <input
+                placeholder="enter max weight"
+                onChange={(event) => {
+                  setLowerChestFlies(event.target.value)
+                }}
+              />{' '}
+            </li>
           </ul>
         </li>
       </ul>
+      <input class="submit" type="submit" onClick={overallComputation} />
     </div>
   )
 }
@@ -128,13 +185,6 @@ export const MiniChest = () => {
             </ul>
           </li>
         </ul>
-        <button
-          className="btn-primary"
-          type="submit"
-          onClick="overallComputation"
-        >
-          Submit
-        </button>
       </div>
     </>
   )
