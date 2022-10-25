@@ -1,5 +1,6 @@
 import './workouts.scss'
 import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 export const Chest = () => {
   //main one
@@ -21,7 +22,7 @@ export const Chest = () => {
   window.localStorage.setItem('lowerchestcable', lowerChestFlies)
   window.localStorage.setItem('overall', overallChest)
 
-  const overallComputation = (event) => {
+  const overallChestComputation = (event) => {
     event.preventDefault()
     const prevoverall =
       Number(
@@ -34,7 +35,16 @@ export const Chest = () => {
       ) / 6
 
     setOverallChest(prevoverall)
+    axios
+      .post('http://localhost:3000/chestInput', {
+        weight: overallChest,
+      })
+      .then((response) => {
+        alert('success!')
+      })
   }
+
+  const sendChest = () => {}
 
   return (
     <div id="progress-schedule">
@@ -138,7 +148,7 @@ export const Chest = () => {
           </ul>
         </li>
       </ul>
-      <input class="submit" type="submit" onClick={overallComputation} />
+      <input class="submit" type="submit" onClick={overallChestComputation} />
     </div>
   )
 }
