@@ -1,0 +1,23 @@
+#mainchange {
+  margin-top: 40px;
+  border-color: black;
+  border-style: solid;
+  overflow: scroll;
+  height: 400px;
+  width: 650px;
+  background-color: #ff858d;
+  margin-left: 20px;
+  border-top-color: black;
+  border-bottom-color: black;
+  border-style: solid;
+  border-width: 3px;
+  .title {
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+#mainchange::-webkit-scrollbar {
+  display: none;
+}

@@ -1,21 +1,41 @@
-import { Chart as ChartJS, registerables } from 'chart.js'
-import { Line } from 'react-chartjs-2'
-import 'chartjs-adapter-date-fns'
-import enGB from 'date-fns/locale'
+import { Row, Col } from 'react-bootstrap'
+import './goalchart.scss'
 
-const GoalChart = () => {
+export const GoalChart = () => {
   return (
     <>
-      <Container className="border border-secondary">
-        <Row>
-          <Line
-            options={options}
-            data={data}
-            style={{ vh: 50 }}
-            datasetIdKey="id"
-          />
-        </Row>
-      </Container>
+      <Row id="mainchange" className="flex-nowrap">
+        <Col>
+          <h5 className="title">
+            <b>Chest</b>
+          </h5>
+        </Col>
+        <Col>
+          <h5 className="title">
+            <b>Tri</b>
+          </h5>
+        </Col>
+        <Col>
+          <h5 className="title">
+            <b>Back</b>
+          </h5>{' '}
+        </Col>
+        <Col>
+          <h5 className="title">
+            <b>Bicep</b>
+          </h5>{' '}
+        </Col>
+        <Col>
+          <h5 className="title">
+            <b>Legs</b>
+          </h5>{' '}
+        </Col>
+        <Col>
+          <h5 className="title">
+            <b>Shoulders</b>
+          </h5>{' '}
+        </Col>
+      </Row>
     </>
   )
 }

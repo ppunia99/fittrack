@@ -1,6 +1,5 @@
 .minischedule {
   font-size: 9;
-  background-color: #ffc875;
   width: fit-content;
   margin-top: 3px;
   width: 250px;
@@ -13,14 +12,30 @@
 
 #progress-schedule {
   font-size: 9;
-  background-color: #ffc875;
+  background-color: #ecfee8;
   margin-top: 3px;
   width: 250px;
   border: black;
   border-style: solid;
 
   input {
-    width: 45px;
+    width: 35px;
     background-color: transparent;
+    border-style: solid;
+    border-color: black;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: solid;
+    margin-left: 3px;
   }
+}
+
+.submit {
+  border: black;
+  background-color: wheat;
+  border-style: solid;
+  width: 70px;
+  justify-content: center;
+  align-items: center;
 }

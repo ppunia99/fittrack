@@ -5,6 +5,7 @@ import Schedule from './components/schedule/Schedule'
 import { Row, Col } from 'react-bootstrap'
 import YFactors from './components/factors/yesterdayfactors'
 import { MainProgress, ProgressDash } from './components/progress/ProgressDash'
+import { GoalChart } from './components/chart/GoalChart'
 
 function App() {
   return (
@@ -24,11 +25,13 @@ function App() {
             <ProgressDash />
           </Col>
         </Row>
-        <Row>
+        <Row className="mainstuff">
           <Col>
             <MainProgress />
           </Col>
-          <Col> </Col>
+          <Col>
+            <GoalChart />
+          </Col>
         </Row>
       </div>
     </>

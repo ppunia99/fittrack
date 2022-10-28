@@ -1,5 +1,5 @@
 .main-nav {
-  background-color: #415a77;
+  background-color: #8aa7d1;
   font-weight: bold;
   height: 60px;
   margin: 0px;
@@ -30,4 +30,11 @@
 #body-container {
   background-color: #ecfee8;
   height: 900px;
+
+  .mainstuff {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
 }

@@ -1,5 +1,5 @@
 import './workouts.scss'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
 export const Chest = () => {
@@ -13,14 +13,6 @@ export const Chest = () => {
   const [pecFlies, setPecFlies] = useState()
   const [uprightDumbbellRaise, setUprightDumbellRaise] = useState()
   const [lowerChestFlies, setLowerChestFlies] = useState()
-
-  window.localStorage.setItem('flatbench', flatBench)
-  window.localStorage.setItem('inclinemachine', inclinePressMachine)
-  window.localStorage.setItem('declinemachine', declinePressMachine)
-  window.localStorage.setItem('pecflies', pecFlies)
-  window.localStorage.setItem('upperchestdb', uprightDumbbellRaise)
-  window.localStorage.setItem('lowerchestcable', lowerChestFlies)
-  window.localStorage.setItem('overall', overallChest)
 
   const overallChestComputation = (event) => {
     event.preventDefault()
@@ -43,8 +35,6 @@ export const Chest = () => {
         alert('success!')
       })
   }
-
-  const sendChest = () => {}
 
   return (
     <div id="progress-schedule">
@@ -148,7 +138,9 @@ export const Chest = () => {
           </ul>
         </li>
       </ul>
-      <input class="submit" type="submit" onClick={overallChestComputation} />
+      <button class="submit" type="submit" onClick={overallChestComputation}>
+        Submit
+      </button>
     </div>
   )
 }

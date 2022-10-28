@@ -5,7 +5,7 @@
   overflow: scroll;
   height: 200px;
   width: 700px;
-  background-color: white;
+  background-color: wheat;
 
   .col {
     border-right-color: black;
@@ -17,8 +17,16 @@
     padding-right: 0;
   }
 
+  .col::-webkit-scrollbar {
+    display: none;
+  }
+
   .dropdown {
     display: flex;
     justify-content: center;
   }
+}
+
+.schedule-container::-webkit-scrollbar {
+  display: none;
 }

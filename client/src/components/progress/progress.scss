@@ -34,11 +34,24 @@
   border-style: solid;
   overflow: scroll;
   height: 400px;
-  width: 700px;
-  background-color: #415a77;
+  width: 650px;
+  background-color: #94b0da;
   margin-left: 20px;
+  border-top-color: black;
+  border-bottom-color: black;
+  border-style: solid;
+  border-width: 3px;
   .title {
     color: white;
     text-align: center;
+    font-weight: bold;
   }
+}
+
+#progress-dash::-webkit-scrollbar {
+  display: none;
+}
+
+#main-progress::-webkit-scrollbar {
+  display: none;
 }
