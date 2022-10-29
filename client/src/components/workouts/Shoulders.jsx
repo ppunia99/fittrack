@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios'
 
 export const Shoulders = () => {
   const [exercieseOne, setExerciseOne] = useState()
@@ -20,6 +21,14 @@ export const Shoulders = () => {
       ) / 5
 
     setOverall(prevoverall)
+
+    axios
+      .post('http://localhost:3000/shouldersInput', {
+        strength: overall,
+      })
+      .then((response) => {
+        alert('success!')
+      })
   }
   return (
     <div id="progress-schedule">

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios'
 
 export const Legs = () => {
   const [exercieseOne, setExerciseOne] = useState()
@@ -20,6 +21,13 @@ export const Legs = () => {
       ) / 5
 
     setOverall(prevoverall)
+    axios
+      .post('http://localhost:3000/legsInput', {
+        strength: overall,
+      })
+      .then((response) => {
+        alert('success!')
+      })
   }
   return (
     <div id="progress-schedule">

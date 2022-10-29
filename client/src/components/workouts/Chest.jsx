@@ -29,7 +29,7 @@ export const Chest = () => {
     setOverallChest(prevoverall)
     axios
       .post('http://localhost:3000/chestInput', {
-        weight: overallChest,
+        strength: overallChest,
       })
       .then((response) => {
         alert('success!')
